@@ -1,0 +1,27 @@
+## 📰 News Finder
+
+News Finder is a simple web application built with Python and Streamlit that allows users to search for news on any topic without requiring an API key.
+
+## 🚀 Features
+
+- Search news by any topic
+- Simple and user-friendly interface
+- Displays latest available news results
+- No API key required
+- Fast and easy to use
+
+## 🛠️ Technologies Used
+
+- Python
+- Streamlit
+- Requests
+- XML ElementTree
+- Google News RSS
+
+## 📂 Project Structure
+
+python project/
+│
+├── main.py
+├── requirements.txt
+└── README.md
