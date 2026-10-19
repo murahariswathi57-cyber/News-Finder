@@ -1,3 +1,7 @@
+### 🌐 Live Demo Link (Click to see output):
+https://news-finder-hvjecfdu4jfufbug5jwykh.streamlit.app
+
+---
 ## 📰 News Finder
 
 News Finder is a simple web application built with Python and Streamlit that allows users to search for news on any topic without requiring an API key.
