@@ -1,60 +1,4 @@
 import streamlit as st
-st.markdown("""
-<style>
-.stApp {
-    background: linear-gradient(135deg, #f0f7ff, #ffffff, #f5f0ff);
-    color: #172554;
-}
-
-h1 {
-    color: #4338ca;
-    font-weight: 800;
-}
-
-.stTextInput input {
-    background-color: white;
-    color: #172554;
-    border: 2px solid #c7d2fe;
-    border-radius: 12px;
-    padding: 12px;
-}
-
-.stButton > button {
-    background: linear-gradient(90deg, #4f46e5, #9333ea, #ec4899);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 24px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.stButton > button:hover {
-    background: linear-gradient(90deg, #3730a3, #7e22ce, #be185d);
-    color: white;
-    transform: scale(1.03);
-}
-
-div[data-testid="stAlert"] {
-    border-radius: 12px;
-}
-
-div[data-testid="stVerticalBlockBorderWrapper"] {
-    background-color: white;
-    border-radius: 14px;
-}
-</style>
-st.markdown("""
-/* Your existing CSS styling */
-
-""", unsafe_allow_html=True)
-
-# Add your 3D image code here
-st.image("news_3d.png", use_container_width=True)
-
-# Then your existing News Finder title and search code
-st.title("📰 News Finder")
-""", unsafe_allow_html=True)
 import requests
 import xml.etree.ElementTree as ET
 
@@ -83,3 +27,7 @@ if st.button("Search News"):
                 st.caption(date)
                 st.link_button("Read Full News", link)
                 st.divider()
+
+
+
+         
