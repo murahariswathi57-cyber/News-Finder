@@ -1,3 +1,15 @@
+# --- PRO STYLE - ADD ONLY THIS ---
+import streamlit as st
+st.set_page_config(page_title="News Finder Pro", page_icon="📰", layout="centered")
+st.markdown("""
+<style>
+    .stApp{background:#0e1117}
+    .stTextInput input{background:#1e232f!important;border:1px solid #30363d!important;border-radius:12px!important;color:white!important;height:50px!important}
+    .stButton button{background:linear-gradient(90deg,#238636,#1f6feb)!important;color:white!important;border-radius:12px!important;height:48px!important;font-weight:600!important;width:100%;border:none!important}
+    .news-card{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:18px;margin-top:12px}
+</style>
+""", unsafe_allow_html=True)
+# --- YOUR OLD CODE CONTINUES BELOW ---
 import streamlit as st
 import requests
 import xml.etree.ElementTree as ET
