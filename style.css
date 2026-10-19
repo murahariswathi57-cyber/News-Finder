@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #e9d5ff);
+  color: #222;
+  padding: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 25px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px #6366f155;
+}
+
+button {
+  background: linear-gradient(45deg, #6366f1, #d946ef);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px #6366f177;
+}
+
+.news-card {
+  background: white;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px #0002;
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
