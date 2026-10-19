@@ -44,6 +44,17 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     border-radius: 14px;
 }
 </style>
+st.markdown("""
+<style>
+/* Your existing CSS styling */
+</style>
+""", unsafe_allow_html=True)
+
+# Add your 3D image code here
+st.image("news_3d.png", use_container_width=True)
+
+# Then your existing News Finder title and search code
+st.title("📰 News Finder")
 """, unsafe_allow_html=True)
 import requests
 import xml.etree.ElementTree as ET
