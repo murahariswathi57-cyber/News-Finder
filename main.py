@@ -45,9 +45,8 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 </style>
 st.markdown("""
-<style>
 /* Your existing CSS styling */
-</style>
+
 """, unsafe_allow_html=True)
 
 # Add your 3D image code here
