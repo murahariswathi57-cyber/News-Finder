@@ -41,7 +41,7 @@ def fetch_live_news(q):
                 desc = desc.split("<")[0]
             
             # Random image based on query - so you always get picture
-            img_url = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600"
+            img_url = f"https://picsum.photos/seed/{idx}{q}{title[:5]}/400/300"
             
             articles.append({
                 "title": title,
