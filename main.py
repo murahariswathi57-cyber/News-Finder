@@ -1,52 +1,76 @@
 import streamlit as st
 
-st.set_page_config(page_title="News Finder", layout="centered")
+st.set_page_config(
+    page_title="News Finder",
+    page_icon="📰",
+    layout="wide"
+)
 
-# LIGHT THEME FIX
 st.markdown("""
 <style>
-.stApp { background-color: #f8fafc !important; }
-h1,h2,h3,p,label,span { color: #0f172a !important; }
-div[data-testid="stTextInput"] input {
-    background: white !important; border-radius: 25px !important;
-    height: 55px !important; border: 1px solid #e2e8f0 !important;
+.stApp {
+    background: linear-gradient(135deg,#dbeafe,#f3e8ff,#fce7f3);
 }
-div[data-testid="stSelectbox"] div { background: white !important; border-radius: 25px !important; }
-.stButton button { background: #0f172a !important; color: white !important; border-radius: 25px !important; height: 55px !important; width: 100%; }
-.news-card {
-    background: white; border-radius: 16px; display: flex; gap: 15px;
-    padding: 16px; margin-bottom: 16px; border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+.title {
+    text-align:center;
+    font-size:45px;
+    font-weight:bold;
+    color:#4f46e5;
 }
-.news-card img { width: 150px; height: 110px; border-radius: 12px; object-fit: cover; }
+.subtitle {
+    text-align:center;
+    color:#475569;
+    font-size:18px;
+}
+.news {
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 25px #6366f144;
+    margin:15px 0;
+    border-left:5px solid #8b5cf6;
+}
+.news:hover {
+    transform:translateY(-5px);
+}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align:center;'>📰 News Finder</h1><p style='text-align:center;'>Explore latest stories</p>", unsafe_allow_html=True)
+st.markdown('<div class="title">📰 News Finder</div>',
+            unsafe_allow_html=True)
+st.markdown(
+    '<div class="subtitle">Discover stories. Explore the world.</div>',
+    unsafe_allow_html=True
+)
 
-query = st.text_input("Search news", placeholder="e.g. gate exams")
-category = st.selectbox("Choose a category", ["Education", "Technology", "Sports", "Business", "Health"])
-search = st.button("✨ Search News")
+st.write("")
 
-# SAMPLE NEWS DATA WITH PICTURES - ALWAYS WORKS
-sample_news = [
-    {"title": "GATE 2026 Exam Dates Announced", "desc": "IIT announces GATE 2026 schedule, registration starts soon. Check eligibility and syllabus.", "img": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500", "url": "https://gate2026.iisc.ac.in"},
-    {"title": "Education Ministry Launches New Skill Program", "desc": "New initiative to boost employability for engineering graduates across India.", "img": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500", "url": "https://www.education.gov.in"},
-    {"title": "Top 5 Tips to Crack GATE Exams", "desc": "Experts share strategy, time management and best books for GATE preparation.", "img": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500", "url": "#"},
-]
+topic = st.text_input(
+    "🔎 Search News",
+    placeholder="Enter a topic, e.g. AI, technology, sports..."
+)
 
-if search:
-    st.markdown(f"### 📚 Latest Discoveries for '{query}' - {category}")
-    for news in sample_news:
-        st.markdown(f"""
-        <div class="news-card">
-            <img src="{news['img']}">
-            <div>
-                <h4 style="margin:0 0 8px 0;">{news['title']}</h4>
-                <p style="font-size:13px; color:#64748b !important; margin:0 0 10px 0;">{news['desc']}</p>
-                <a href="{news['url']}" target="_blank" style="color:#0f172a; font-weight:bold; text-decoration:none;">Read More →</a>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-else:
-    st.info("Type something like 'gate exams' and click Search News")
+if st.button("✨ Find News", use_container_width=True):
+    if topic.strip():
+        st.subheader(f"📰 Explore: {topic}")
+        st.info(
+            "This demo does not fetch live news. "
+            "Connect a news API to display real articles."
+        )
+
+st.markdown("""
+<div class="news">
+<h3>🌍 World News</h3>
+<p>Explore international events and important global developments.</p>
+</div>
+<div class="news">
+<h3>💻 Technology</h3>
+<p>Discover innovations in AI, software, and digital technology.</p>
+</div>
+<div class="news">
+<h3>🚀 Science & Innovation</h3>
+<p>Explore discoveries shaping our future.</p>
+</div>
+""", unsafe_allow_html=True)
+
+st.caption("News Finder | Explore knowledge, one story at a time.")
