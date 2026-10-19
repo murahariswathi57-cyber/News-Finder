@@ -1,33 +1,70 @@
 import streamlit as st
-import requests
-import xml.etree.ElementTree as ET
+from pathlib import Path
 
-st.set_page_config(page_title="News Finder", page_icon=" ")
-st.title(" News Finder")
-st.write("Search any topic - No API Key needed")
+st.set_page_config(
+    page_title="News Finder",
+    page_icon="📰",
+    layout="wide"
+)
 
-topic = st.text_input("Enter a topic", "technology")
+# Load the separate CSS file
+css_file = Path(__file__).parent / "style.css"
+if css_file.exists():
+    st.markdown(
+        f"<style>{css_file.read_text(encoding='utf-8')}</style>",
+        unsafe_allow_html=True
+    )
 
-if st.button("Search News"):
-    with st.spinner("Finding news..."):
-        url = f"https://news.google.com/rss/search?q={topic}&hl=en-IN&gl=IN&ceid=IN:en"
-        response = requests.get(url)
-        root = ET.fromstring(response.content)
-        news_list = root.findall("./channel/item")[:6]
+# 3D-style hero section
+st.markdown("""
+<div class="hero">
+    <div class="hero-art">
+        <div class="news-object">📰</div>
+        <div class="news-object">🔎</div>
+        <div class="news-object">🌍</div>
+    </div>
+    <h1>News Finder</h1>
+    <p>Explore the latest stories. Discover what matters.</p>
+</div>
+""", unsafe_allow_html=True)
 
-        if not news_list:
-            st.error("No news found. Try another topic.")
-        else:
-            for news in news_list:
-                title = news.find("title").text
-                link = news.find("link").text
-                date = news.find("pubDate").text
+# Search interface
+st.markdown("### 🔎 Find your next story")
 
-                st.subheader(title)
-                st.caption(date)
-                st.link_button("Read Full News", link)
-                st.divider()
+with st.container(border=True):
+    query = st.text_input(
+        "Search news",
+        placeholder="Try technology, AI, sports or education..."
+    )
 
+    category = st.selectbox(
+        "Choose a category",
+        ["All News", "Technology", "Education",
+         "Business", "Sports", "Science", "Health"]
+    )
 
+    search_clicked = st.button(
+        "✨ Search News",
+        use_container_width=True
+    )
 
-         
+st.markdown("### 📰 Latest Discoveries")
+
+if search_clicked:
+    if query.strip():
+        st.info(
+            f"Search requested: {query.strip()} | "
+            f"Category: {category}"
+        )
+
+        # CONNECT YOUR EXISTING NEWS SEARCH FUNCTION HERE.
+        # Display the real news articles returned by that function.
+    else:
+        st.warning("Please enter a topic to search.")
+
+else:
+    st.markdown("""
+    Explore topics such as **Artificial Intelligence**,
+    **Technology**, **Education**, and **Science**.
+    Enter a topic above to get started.
+    """)
